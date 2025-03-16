@@ -1,0 +1,65 @@
+<script setup lang="ts">
+import { useLaptopsStore } from '../store/useProductsStore';
+import { NXButton, NXCard, NXLoaderScreen } from '@nuex_mono/ui-components';
+import { useShoppingCartStore } from '@nuex-shopping-cart/shoppingCartStore';
+import { Product } from '@nuex/products-api';
+import { pinia } from '../main';
+
+const shoppingCartStore = useShoppingCartStore(pinia);
+const productsStore = useLaptopsStore();
+
+function toPrice(price: number): string {
+  return `Total price ${price}$`;
+}
+
+function addToCart(product: Product): void {
+  shoppingCartStore.addProduct(product);
+}
+
+function goToProduct() {
+  console.log('goes');
+}
+</script>
+<template>
+  <NXLoaderScreen v-if="productsStore.isLoading" />
+  <div
+    v-else
+    class="products"
+  >
+    <NXCard
+      v-for="product in productsStore.products"
+      :key="product.id"
+      :img-src="product.thumbnail"
+      :title="product.title"
+      :subtitle="toPrice(product.price)"
+    >
+      <template #actions>
+        <NXButton
+          text="Go to product"
+          variant="elevated"
+          :disabled="false"
+          color="primary"
+          @click="goToProduct"
+        />
+        <NXButton
+          text="Add to cart"
+          color="success"
+          variant="elevated"
+          :disabled="false"
+          @click="addToCart(product)"
+        />
+      </template>
+    </NXCard>
+  </div>
+</template>
+<style lang="scss" scoped>
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 45rem);
+  gap: 1rem;
+  width: 80rem;
+  margin: 0 auto;
+  padding-top: 4rem;
+}
+</style>

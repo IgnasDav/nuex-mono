@@ -1,0 +1,8 @@
+{
+  "name": "shop-administration",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/shop-administration/src",
+  "// targets": "to see all targets run: nx show project shop-administration --web",
+  "targets": {}
+}
