@@ -1,0 +1,17 @@
+{
+  "name": "@nuex_mono/ui-components",
+  "version": "0.2.2",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "peerDependencies": {
+    "vue": "^3.3.4",
+    "vuetify": "^3.7.16"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  }
+}

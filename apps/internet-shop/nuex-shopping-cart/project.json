@@ -1,0 +1,14 @@
+{
+  "name": "nuex-shopping-cart",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/internet-shop/nuex-shopping-cart/src",
+  "// targets": "to see all targets run: nx show project nuex-shopping-cart --web",
+  "targets": {
+    "serve": {
+      "options": {
+        "port": 5001
+      }
+    }
+  }
+}
