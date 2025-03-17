@@ -2,9 +2,12 @@
 import { NXSideMenu, NXLayout } from '@nuex_mono/ui-components';
 import { NAVIGATION_OPTIONS } from '../constants/navigation-menu';
 import ShoppingCartComponent from '@nuex-shopping-cart/ShoppingCartComponent';
+import { useShoppingCartStore } from '@nuex-shopping-cart/store';
 import { useRouter } from 'vue-router';
-const router = useRouter();
+import { pinia } from '../main';
 
+const router = useRouter();
+useShoppingCartStore(pinia);
 function handleRouteChange(route: string): void {
   router.push(route);
 }
@@ -17,7 +20,7 @@ function handleRouteChange(route: string): void {
       @route-click="handleRouteChange"
     />
     <ShoppingCartComponent />
-    <main class="ml-64 pl-1">
+    <main class="ml-40 pl-1 w-full">
       <RouterView />
     </main>
   </NXLayout>

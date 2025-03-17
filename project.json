@@ -10,8 +10,8 @@
         "storage": "tmp/local-registry/storage"
       }
     },
-    "serve-internet-shop": {
-      "command": "pnpm npm-run-all -p -r preview:*"
+    "dev:internet-shop": {
+      "command": "pnpm npm-run-all -p -r testing preview:* dev:nuex-internet-shop"
     }
   }
 }

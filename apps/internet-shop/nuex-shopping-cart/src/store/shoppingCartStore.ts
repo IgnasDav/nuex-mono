@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import { computed, reactive } from 'vue';
 import { Product } from '@nuex/products-api';
+import { computed, reactive } from 'vue';
 
 interface State {
   data: Product[];
@@ -17,7 +17,7 @@ export const useShoppingCartStore = defineStore('shoppingCart', () => {
   );
 
   function addProduct(product: Product): void {
-    if (!_state.data.find(({ id }) => id === product.id)) return;
+    if (_state.data.find(({ id }) => id === product.id)) return;
 
     _state.data = [..._state.data, product];
   }
@@ -26,5 +26,9 @@ export const useShoppingCartStore = defineStore('shoppingCart', () => {
     _state.data = _state.data.filter((product) => product.id !== id);
   }
 
-  return { totalSum, products, addProduct, removeProduct };
+  function clearShoppingCart(): void {
+    _state.data = [];
+  }
+
+  return { totalSum, products, addProduct, removeProduct, clearShoppingCart };
 });

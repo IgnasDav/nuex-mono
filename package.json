@@ -5,7 +5,10 @@
   "scripts": {
     "preview:nuex-shopping-cart": "pnpm nx run nuex-shopping-cart:preview",
     "preview:nuex-laptop-shop": "pnpm nx run nuex-laptop-shop:preview",
-    "preview:nuex-smartphone-shop": "pnpm nx run nuex-smartphone-shop:preview"
+    "preview:nuex-smartphone-shop": "pnpm nx run nuex-smartphone-shop:preview",
+    "dev:nuex-internet-shop": "pnpm nx run nuex-internet-shop:dev",
+    "serve:internet-shop": "pnpm npm-run-all -p -r preview:*",
+    "testing": "pnpm nx watch --projects=nuex-shopping-cart,nuex-laptop-shop,nuex-smartphone-shop --d -- pnpm nx run-many -t=build"
   },
   "private": true,
   "dependencies": {

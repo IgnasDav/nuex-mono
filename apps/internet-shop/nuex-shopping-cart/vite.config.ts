@@ -18,26 +18,20 @@ export default defineConfig(() => ({
   },
   plugins: [
     vue(),
-    nxViteTsPaths(),
-    nxCopyAssetsPlugin(['*.md']),
     federation({
       name: '@nuex-shopping-cart',
       filename: 'remoteEntry.js',
       exposes: {
-        './shoppingCartStore': './src/store/shoppingCartStore.ts',
+        './store': './src/store/index.ts',
         './ShoppingCartView': './src/views/ShoppingCartView.vue',
+        './ShoppingApp': './src/app/App.vue',
         './ShoppingCartComponent':
           './src/features/shopping-cart/ShoppingCart.vue',
       },
-      shared: {
-        vue: {
-          singleton: true,
-        },
-        pinia: {
-          singleton: true,
-        },
-      },
+      shared: ['vue', 'pinia'],
     }),
+    nxViteTsPaths(),
+    nxCopyAssetsPlugin(['*.md']),
   ],
   // Uncomment this if you are using workers.
   // worker: {

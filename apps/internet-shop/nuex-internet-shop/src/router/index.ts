@@ -4,13 +4,13 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/smartphone-shop',
-      name: 'smartphone-shop',
+      path: '/laptop-shop',
+      name: 'laptop-shop',
       component: () => import('@nuex-laptop-shop/LaptopShop'),
     },
     {
-      path: '/laptop-shop',
-      name: 'laptop-shop',
+      path: '/smartphone-shop',
+      name: 'smartphone-shop',
       component: () => import('@nuex-smartphone-shop/SmartphoneShop'),
     },
     {

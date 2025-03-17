@@ -18,29 +18,25 @@ export default defineConfig(() => ({
   },
   plugins: [
     vue(),
-    nxViteTsPaths(),
-    nxCopyAssetsPlugin(['*.md']),
     federation({
       name: '@nuex-laptop-shop',
       filename: 'remoteEntry.js',
+      exposes: {
+        './LaptopShop': './src/views/Products.vue',
+      },
       remotes: {
         '@nuex-shopping-cart': 'http://localhost:5001/assets/remoteEntry.js',
       },
-      exposes: {
-        './LaptopShop': './src/app/App.vue',
-      },
       shared: {
-        vue: {
-          singleton: true,
-        },
+        vue: {},
         pinia: {
-          singleton: true,
+          modulePreload: true,
         },
-        axios: {
-          singleton: true,
-        },
+        axios: {},
       },
     }),
+    nxViteTsPaths(),
+    nxCopyAssetsPlugin(['*.md']),
   ],
   // Uncomment this if you are using workers.
   // worker: {

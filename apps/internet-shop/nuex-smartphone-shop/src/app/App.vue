@@ -1,5 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Products from './../views/Products.vue';
+import ShoppingCardComponent from '@nuex-shopping-cart/ShoppingCartComponent';
+</script>
 
 <template>
-  <h1>Smartphone shop</h1>
+  <Products />
+  <ShoppingCardComponent />
 </template>

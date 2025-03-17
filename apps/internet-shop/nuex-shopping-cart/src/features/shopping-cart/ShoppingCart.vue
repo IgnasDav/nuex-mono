@@ -2,6 +2,11 @@
 import { NXButton, NXCard, NXSheet } from '@nuex_mono/ui-components';
 import { useShoppingCartStore } from '../../store/shoppingCartStore';
 const shoppingCartStore = useShoppingCartStore();
+
+function buyProducts(): void {
+  window.alert(`Total price paid: ${shoppingCartStore.totalSum}`);
+  shoppingCartStore.clearShoppingCart();
+}
 </script>
 <template>
   <NXSheet
@@ -48,6 +53,7 @@ const shoppingCartStore = useShoppingCartStore();
         class="sheet__product__action"
         variant="elevated"
         :disabled="!shoppingCartStore.products.length"
+        @click="buyProducts"
       />
     </template>
   </NXSheet>
@@ -62,6 +68,9 @@ const shoppingCartStore = useShoppingCartStore();
   border-radius: 0.75rem;
   position: fixed;
   padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &__header {
     text-align: center;

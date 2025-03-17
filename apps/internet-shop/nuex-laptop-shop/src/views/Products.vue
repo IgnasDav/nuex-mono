@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { useLaptopsStore } from '../store/useProductsStore';
 import { NXButton, NXCard, NXLoaderScreen } from '@nuex_mono/ui-components';
-import { useShoppingCartStore } from '@nuex-shopping-cart/shoppingCartStore';
+import { useShoppingCartStore } from '@nuex-shopping-cart/store';
 import { Product } from '@nuex/products-api';
-import { pinia } from '../main';
+import { useLaptopsStore } from '../store/useProductsStore';
 
-const shoppingCartStore = useShoppingCartStore(pinia);
 const productsStore = useLaptopsStore();
+const shoppingCartStore = useShoppingCartStore();
 
 function toPrice(price: number): string {
   return `Total price ${price}$`;
@@ -21,11 +20,11 @@ function goToProduct() {
 }
 </script>
 <template>
-  <NXLoaderScreen v-if="productsStore.isLoading" />
-  <div
-    v-else
-    class="products"
-  >
+  <NXLoaderScreen
+    v-if="productsStore.isLoading"
+    class="loader"
+  />
+  <div class="products">
     <NXCard
       v-for="product in productsStore.products"
       :key="product.id"
@@ -53,6 +52,12 @@ function goToProduct() {
   </div>
 </template>
 <style lang="scss" scoped>
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 .products {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

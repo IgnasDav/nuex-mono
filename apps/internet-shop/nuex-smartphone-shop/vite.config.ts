@@ -25,9 +25,12 @@ export default defineConfig(() => ({
       name: 'nuex-smartphone-shop',
       filename: 'remoteEntry.js',
       exposes: {
-        './SmartphoneShop': './src/app/App.vue',
+        './SmartphoneShop': './src/views/Products.vue',
       },
-      shared: ['vue'],
+      remotes: {
+        '@nuex-shopping-cart': 'http://localhost:5001/assets/remoteEntry.js',
+      },
+      shared: ['vue', 'pinia', 'axios'],
     }),
   ],
   // Uncomment this if you are using workers.
