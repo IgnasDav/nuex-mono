@@ -17,7 +17,7 @@ export const useShoppingCartStore = defineStore('shoppingCart', () => {
   );
 
   function addProduct(product: Product): void {
-    if (_state.data.find(({ id }) => id !== product.id)) return;
+    if (!_state.data.find(({ id }) => id === product.id)) return;
 
     _state.data = [..._state.data, product];
   }

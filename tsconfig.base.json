@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nuex/products-api": ["libs/api/products-api/src/index.ts"],
+      "@nuex/products-api": ["libs/api/products-api/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
