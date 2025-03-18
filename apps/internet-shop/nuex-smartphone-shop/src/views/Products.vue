@@ -36,7 +36,7 @@ function goToProduct() {
         <NXButton
           text="Go to product"
           variant="elevated"
-          :disabled="false"
+          :disabled="true"
           color="primary"
           @click="goToProduct"
         />

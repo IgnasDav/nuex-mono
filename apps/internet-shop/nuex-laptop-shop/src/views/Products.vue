@@ -15,8 +15,8 @@ function addToCart(product: Product): void {
   shoppingCartStore.addProduct(product);
 }
 
-function goToProduct() {
-  console.log('goes');
+function goToProduct(product: Product) {
+  // router.push(`/laptop-shop/laptop/${product.id}`);
 }
 </script>
 <template>
@@ -36,9 +36,9 @@ function goToProduct() {
         <NXButton
           text="Go to product"
           variant="elevated"
-          :disabled="false"
+          :disabled="true"
           color="primary"
-          @click="goToProduct"
+          @click="goToProduct(product)"
         />
         <NXButton
           text="Add to cart"

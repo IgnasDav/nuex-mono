@@ -22,7 +22,7 @@ export default defineConfig(() => ({
       name: '@nuex-laptop-shop',
       filename: 'remoteEntry.js',
       exposes: {
-        './LaptopShop': './src/views/Products.vue',
+        './LaptopShop': './src/app/App.vue',
       },
       remotes: {
         '@nuex-shopping-cart': 'http://localhost:5001/assets/remoteEntry.js',
@@ -33,6 +33,7 @@ export default defineConfig(() => ({
           modulePreload: true,
         },
         axios: {},
+        'vue-router': {},
       },
     }),
     nxViteTsPaths(),

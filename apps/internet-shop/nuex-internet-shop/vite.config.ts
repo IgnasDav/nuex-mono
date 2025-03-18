@@ -27,7 +27,7 @@ export default defineConfig(() => ({
         '@nuex-laptop-shop': 'http://localhost:5002/assets/remoteEntry.js',
         '@nuex-smartphone-shop': 'http://localhost:5003/assets/remoteEntry.js',
       },
-      shared: ['vue', 'pinia', 'axios'],
+      shared: ['vue', 'pinia', 'axios', 'vue-router'],
     }),
   ],
   // Uncomment this if you are using workers.
