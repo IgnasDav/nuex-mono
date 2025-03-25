@@ -1,6 +1,3 @@
-import { Pinia } from 'pinia';
-import { VueElement } from 'vue';
-
 declare module '@nuex-shopping-cart/store' {
   export const useShoppingCartStore: (pinia?: Pinia) => {
     addProduct: (product: Product) => void;
